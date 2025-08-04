@@ -1,5 +1,5 @@
 #pragma once
-#include "gpu_encryptor.hpp"
+#include "encryptor.hpp"
 #include <string>
 #include <vector>
 #include <cuda_runtime.h>

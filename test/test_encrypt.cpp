@@ -3,6 +3,10 @@
 #include <catch2/catch_test_macros.hpp>
 #include "../src/cpu_encryptor.hpp" 
 
+#ifdef USE_CUDA
+#include "../src/gpu_encryptor.hpp"
+#endif
+
 TEST_CASE("CPUEncryptor encrypts and decrypts lines", "[encryption]") {
     CPUEncryptor enc;
     std::vector<std::string> lines = { "Call me Ishmael.", "Some years ago..." };

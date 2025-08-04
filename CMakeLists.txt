@@ -4,12 +4,11 @@ project(moby-dick VERSION 0.1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-option(USE_CUDA "Enable CUDA support" OFF)
-
 if(USE_CUDA)
     enable_language(CUDA)
     add_definitions(-DUSE_CUDA)
     find_package(CUDA REQUIRED)
+    find_package(CUDAToolkit REQUIRED)
     set(CMAKE_CUDA_FLAGS "${CMAKE_CUDA_FLAGS} --extended-lambda")
     set(CMAKE_CUDA_ARCHITECTURES 89)
     message(STATUS "CUDA enabled")

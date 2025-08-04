@@ -39,17 +39,24 @@ std::string output_filename(const std::string& input, bool encrypting) {
 
 int main(int argc, char* argv[]) {
     bool use_cuda = false;
-    if (argc != 3) {
-        std::cerr << "Usage: " << argv[0] << " [--encrypt|--decrypt] <filename>\n";
-        return 1;
-    }
     if (argc == 4 && std::string(argv[3]) == "--use-cuda") {
         use_cuda = true;
     }
+    else if (argc != 3) {
+        std::cerr << "Usage: " << argv[0] << " [--encrypt|--decrypt] <filename>\n";
+        return 1;
+    }
+
 
     std::string mode = argv[1];
     std::string input_filename = argv[2];
     std::vector<std::string> lines;
+
+    #ifdef USE_CUDA
+    std::cout << "[factory] CUDA support compiled in.\n";
+    #else
+    std::cout << "[factory] CPU-only build.\n";
+    #endif
 
     try {
         using Clock = std::chrono::high_resolution_clock;
