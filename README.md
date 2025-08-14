@@ -1,6 +1,6 @@
+### Uses XOR encryption to encrypt/decrypt text in parallel on GPU
 
-
-# Intial Setup - Do every time a new VM is started
+### Intial Setup - Do every time a new VM is started
 
     uv venv
     source .venv/bin/activate
@@ -13,7 +13,7 @@
         email = rich.johnson@wwt.com
         name = Rich Johnson
 
-# Debug Config
+### Debug Config
 
     conan install . --output-folder=build/Debug --build=missing --settings=build_type=Debug
     cd build/Debug 
